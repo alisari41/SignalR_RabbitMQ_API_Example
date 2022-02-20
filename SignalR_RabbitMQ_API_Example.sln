@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_RabbitMQ_API_Example", "SignalR_RabbitMQ_API_Example\SignalR_RabbitMQ_API_Example.csproj", "{5A477EB2-1718-485D-A4E9-8FACBB697F36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSenderExample", "EmailSenderExample\EmailSenderExample.csproj", "{678891EC-8F7B-4336-9C8E-B3C0F2E36706}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5A477EB2-1718-485D-A4E9-8FACBB697F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A477EB2-1718-485D-A4E9-8FACBB697F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A477EB2-1718-485D-A4E9-8FACBB697F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678891EC-8F7B-4336-9C8E-B3C0F2E36706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678891EC-8F7B-4336-9C8E-B3C0F2E36706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678891EC-8F7B-4336-9C8E-B3C0F2E36706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678891EC-8F7B-4336-9C8E-B3C0F2E36706}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
