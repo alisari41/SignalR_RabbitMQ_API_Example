@@ -16,7 +16,7 @@ namespace SignalR_RabbitMQ_API_Example.Controllers
 
         [HttpPost("{message}")]
         public IActionResult Post(string message)
-        {
+        {//Producer (mesela şuan Api) = Mesajı oluşturana denir.
 
             ConnectionFactory factory = new ConnectionFactory();
             factory.Uri = new Uri("amqps://zreirkoo:80Fa-japcFjVWS7-kBG-joOyXDszAZw-@chimpanzee.rmq.cloudamqp.com/zreirkoo");//oluşturduğum cloudAMQP adresini veriyorum
