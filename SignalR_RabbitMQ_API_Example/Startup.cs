@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SignalR_RabbitMQ_API_Example.Hubs;
 
 namespace SignalR_RabbitMQ_API_Example
 {
@@ -19,6 +20,9 @@ namespace SignalR_RabbitMQ_API_Example
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .SetIsOriginAllowed(x => true))); 
+
+            //SignalR servisi
+            services.AddSignalR();
             //Controllers eklendi
             services.AddControllers();
         }
@@ -39,6 +43,9 @@ namespace SignalR_RabbitMQ_API_Example
             {
                 //Controllers eklendi
                 endpoints.MapControllers();
+
+                //Hubs entegre etme
+                endpoints.MapHub<MessageHub>("/messagehub");
             });
         }
     }
