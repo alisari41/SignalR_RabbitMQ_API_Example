@@ -11,9 +11,9 @@
             $("button").click(() => {
                 let email = $("#txtEmail").val();
                 let message = $("#txtMessage").val();
-                $.post("https://localhost:5001/api/message/", {
+                $.post("https://localhost:5001/api/message", {
                     Email: email,
-                    Message, message
+                    Message: message
                 },()=>{//Data gelicekse onu burada karşılıcaz
 
                 });

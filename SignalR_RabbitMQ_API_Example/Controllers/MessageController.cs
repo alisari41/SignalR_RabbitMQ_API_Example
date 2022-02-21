@@ -17,7 +17,7 @@ namespace SignalR_RabbitMQ_API_Example.Controllers
     {//Client'tan gelen mesajı karşılayıp RabbitMQ'ya göndericez
 
         [HttpPost()]
-        public IActionResult Post(User model)
+        public IActionResult Post([FromForm] User model)
         {//Producer (mesela şuan Api) = Mesajı oluşturana denir.
 
             ConnectionFactory factory = new ConnectionFactory();

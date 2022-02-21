@@ -14,6 +14,12 @@ namespace SignalR_RabbitMQ_API_Example
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            //Cros Politikasý
+            services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowCredentials()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed(x => true))); 
+            //Controllers eklendi
             services.AddControllers();
         }
 
@@ -24,10 +30,14 @@ namespace SignalR_RabbitMQ_API_Example
                 app.UseDeveloperExceptionPage();
             }
 
+            //Cors çaðýr
+            app.UseCors();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                //Controllers eklendi
                 endpoints.MapControllers();
             });
         }
