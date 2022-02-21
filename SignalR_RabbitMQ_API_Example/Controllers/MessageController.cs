@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using RabbitMQ.Client;
+using SignalR_RabbitMQ_API_Example.Models;
 
 namespace SignalR_RabbitMQ_API_Example.Controllers
 {
@@ -14,8 +16,8 @@ namespace SignalR_RabbitMQ_API_Example.Controllers
     public class MessageController : ControllerBase
     {//Client'tan gelen mesajı karşılayıp RabbitMQ'ya göndericez
 
-        [HttpPost("{message}")]
-        public IActionResult Post(string message)
+        [HttpPost()]
+        public IActionResult Post(User model)
         {//Producer (mesela şuan Api) = Mesajı oluşturana denir.
 
             ConnectionFactory factory = new ConnectionFactory();
@@ -28,7 +30,10 @@ namespace SignalR_RabbitMQ_API_Example.Controllers
             //Exclusive = Birden fazla kanalın bu kuyruğa bağlanıp bağlanamayacağını belirtiyoruz.
 
 
-            byte[] data = Encoding.UTF8.GetBytes(message);
+            string serializeData = JsonSerializer.Serialize(model);
+
+
+            byte[] data = Encoding.UTF8.GetBytes(serializeData);
             channel.BasicPublish("", "messagequeue", body: data);
 
             return Ok();

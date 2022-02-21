@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Text.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -29,9 +30,15 @@ namespace EmailSenderExample
             {
                 //Email operasyonu burada gerçekleştirilecektir...
                 //e.Body.Span
+
+                string serializeData = Encoding.UTF8.GetString(e.Body.Span);
+                User user = JsonSerializer.Deserialize<User>(serializeData);
+
+                EmailSender.Send(user.Email,user.Message);
+                Console.WriteLine($"{user.Email} mail gönderilmiştir.");
             };
 
-
+            Console.Read();
         }
     }
 }
